@@ -1,0 +1,14 @@
+version : '3'
+service:
+        app:
+                build: .
+                image: ${DOCKER_USER_ID}/ml-test
+
+        production:
+                image: ${DOCKER_USER_ID}/ml-test:${BUILD_NUMBER}
+                volumes:
+                        - .:/code
+                command: python app.py
+                ports:
+                        - "80:80"
+
