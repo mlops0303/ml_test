@@ -4,8 +4,7 @@ WORKDIR /usr/src/app
 
 COPY requirements.txt ./
 
-RUN apt update \
-    && apt-get install python3-pip
+RUN apt update && apt-get install python3-pip
 RUN pip install -r reauirements.txt
 
 COPY . .
